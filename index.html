@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="xlib/tbs/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <title>PanoCalc | A tool for calcuating panorama photograph settings</title>
+</head>
+<body>
+    <div style="max-width:326px;padding: 10px;">
+        <form>
+            <div class="form-group">
+                <label for="inputView">Angle of view of final image (degrees)</label>
+                <input type="text" class="form-control" id="inputView">
+            </div>
+            <div class="form-group">
+                <label for="inputAspectRatio">Aspect ratio of final image</label>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="ddAspectRatio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="title">2 x 3</span>&nbsp;<span class="caret"></span>
+                    </button>
+                    <ul id="aspectRatioMenu" class="dropdown-menu" aria-labelledby="ddAspectRatio"></ul>
+                    <div id="imageOrientation" class="btn-group" role="group">
+                        <button type="button" class="btn btn-default active" aria-pressed="true">Horizontal</button>
+                        <button type="button" class="btn btn-default">Vertical</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputFocalLength">Focal length of lens</label>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="ddFocalLength" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    	<span class="title">50mm</span>&nbsp;<span class="caret"></span>
+                    </button>
+                    <ul id="lensMenu" class="dropdown-menu" aria-labelledby="ddFocalLength">
+                        <li><a href="#">16mm</a></li>
+                        <li><a href="#">18mm</a></li>
+                        <li><a href="#">20mm</a></li>
+                        <li><a href="#">24mm</a></li>
+                        <li><a href="#">28mm</a></li>
+                        <li><a href="#">35mm</a></li>
+                        <li><a href="#">50mm</a></li>
+                        <li><a href="#">70mm</a></li>
+                        <li><a href="#">85mm</a></li>
+                        <li><a href="#">100mm</a></li>
+                        <li><a href="#">135mm</a></li>
+                        <li><a href="#">200mm</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputOverlap">Image overlap: <span class="overlapVal">25</span>%</label>
+                <div id="overlapSlider"></div>
+            </div>
+            <div class="form-group">
+                <label for="cameraOrientation">Camera orientation</label>
+                <div id="cameraOrientation" class="btn-group" role="group">
+                    <button type="button" class="btn btn-default active" aria-pressed="true">Portrait</button>
+                    <button type="button" class="btn btn-default">Landscape</button>
+                </div>
+            </div>
+        </form>
+        <button id="btnCalc" type="button" class="btn btn-default">Calculate</button>
+        <div class="panel panel-default shotLayout">
+            <div class="panel-body"></div>
+            <ul class="list-group"></ul>
+        </div>
+    </div>
+    <script data-main="js/app/main" src="xlib/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+#inputView {
+	width: 85px;
+}
+
+#aspectRatioMenu {
+	min-width: auto;
+}
+
+#aspectRatioMenu a {
+	padding: 3px 5px;
+}
+
+.arRow {
+	display: table-row;
+}
+
+.hxvRatio {
+	display: table-cell;
+    min-width: 70px;
+    text-align: center;
+}
+
+.calcRatio {
+    padding-left: 5px;
+	padding-right: 10px;
+}
+
+#imageOrientation {
+	margin-left: 10px;
+}
+
+#ddFocalLength {
+    min-width: 90px;
+}
+
+#lensMenu {
+    min-width: 90px;
+}
+
+#cameraOrientation {
+	margin-left: 10px;
+}
+
+.shotLayout {
+	margin-top: 15px;
+	min-height: 100px;
+}
+
+.shotLayout .panel-body {
+	position: relative;
+}
+
+.panRow {
+	display: table;
+	width: 100%;
+}
+
+.panVal {
+	display: table-cell;
+}
+
+.panOverlap {
+	display: table-cell;
+	text-align: right;
+}
+
+.layoutRow {
+	position: relative;
+}
+
+.portraitShot {
+	display: inline-block;
+	width: 24px;
+	height: 36px;
+	border: 1px solid black;
+	position: absolute;
+	background-color: white;
+}
+
+.landscapeShot {
+	display: inline-block;
+	width: 36px;
+	height: 24px;
+	border: 1px solid black;
+	position: absolute;
+	background-color: white;
+}
+
+.sampleImage {
+	position: absolute;
+    z-index: 100;
+    background-color: rgb(173, 216, 230);
+    opacity: .5;
+}
