@@ -2,11 +2,38 @@
 	width: 85px;
 }
 
-#aspectRatioMenu {
-	min-width: auto;
+.info-icon {
+	font-size: 1.5em;
+	color: #007bff;
+	cursor: pointer;
 }
 
-#aspectRatioMenu a {
+#angleOfViewInfo {
+	padding: 0px;
+	padding-left: 5px;
+	margin-top: -2px;
+}
+
+#angleOfViewInfo:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+#angleOfViewModal .modal-body {
+	padding: .0rem;
+}
+
+#angleOfViewTable {
+	margin-bottom: 0px;
+}
+
+#aspectRatioMenu {
+	min-width: auto;
+	background-clip: border-box;
+	padding: 5px 0px;
+}
+
+#aspectRatioMenu li {
 	padding: 3px 5px;
 }
 
@@ -16,12 +43,12 @@
 
 .hxvRatio {
 	display: table-cell;
-    min-width: 70px;
-    text-align: center;
+	min-width: 70px;
+	text-align: center;
 }
 
 .calcRatio {
-    padding-left: 5px;
+	padding-left: 5px;
 	padding-right: 10px;
 }
 
@@ -30,15 +57,17 @@
 }
 
 #ddFocalLength {
-    min-width: 90px;
+	min-width: 90px;
 }
 
 #lensMenu {
-    min-width: 90px;
+	min-width: 90px;
+	background-clip: border-box;
 }
 
-#cameraOrientation {
-	margin-left: 10px;
+#lensMenu li {
+	text-align: center;
+	padding: 3px 5px;
 }
 
 .shotLayout {
@@ -88,7 +117,23 @@
 
 .sampleImage {
 	position: absolute;
-    z-index: 100;
-    background-color: rgb(173, 216, 230);
-    opacity: .5;
+	z-index: 100;
+	background-color: rgb(173, 216, 230);
+	opacity: .5;
+}
+
+.calcHeader {
+	text-align: center;
+	border-top: 1px solid;
+	padding-top: 15px;
+}
+
+#btnCalc {
+	font-weight: 700;
+	border-width: 2px;
+}
+
+.calcResults {
+	padding-top: 15px;
+	font-size: 0.9rem;
 }
