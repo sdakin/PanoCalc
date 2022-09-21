@@ -27,6 +27,14 @@
 	margin-bottom: 0px;
 }
 
+#angleOfViewTable thead tr {
+	text-align: center;
+}
+
+.angleOfViewLens {
+	cursor: pointer;
+}
+
 #aspectRatioMenu {
 	min-width: auto;
 	background-clip: border-box;

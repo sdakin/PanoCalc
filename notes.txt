@@ -1,0 +1,5 @@
+1. Put camera in manual exposure mode
+2. Expose for either the brightest area or the main subject of the image
+3. Set the focus on the main subject and then set the camera into manual focus mode
+4. General rule for overlap is 1/3 for mid-range lenses (35mm and above), wider lenses require more overlap
+5. see: https://www.youtube.com/watch?v=2-t1MqP1AXM

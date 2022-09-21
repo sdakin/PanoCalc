@@ -87,8 +87,13 @@ define(["bootstrap", "jquery-ui"], function () {
         "100mm": { landscape: 20.4, portrait: 13.7 },
         "135mm": { landscape: 15.2, portrait: 10.2 },
         "200mm": { landscape: 10.3, portrait: 6.9 }
-    },
-        sensorRes = { landscape: 5760, portrait: 3840 };
+    };
+    let cameraSensors = {
+        "r5": { landscape: 8192, portrait: 4320 },
+        "5D Mark iv": { landscape: 5760, portrait: 3840 },
+        "GX9": { landscape: 5184, portrait: 3888 }
+    };
+    let sensorRes = cameraSensors["r5"];
 
     let $menu = $("#lensMenu");
     let $tableBody = $("#angleOfViewTable").find("tbody");
@@ -97,12 +102,24 @@ define(["bootstrap", "jquery-ui"], function () {
         $menu.append($('<li><a href="#">' + lens + '</a></li>'));
 
         let viewObj = lensView[lens];
-        let aovRow = $('<tr><th scope="row">' + lens + '</th><td>' + viewObj.landscape + '</td><td>' + viewObj.portrait + '</td></tr>');
+        let aovRow = $('<tr><th scope="row"><span class="angleOfViewLens">' + lens + '</span></th><td>' +
+            viewObj.landscape + '</td><td>' + viewObj.portrait + '</td></tr>');
         $tableBody.append(aovRow);
     });
     $("#angleOfViewTable").find("th").css("padding", ".5rem");
     $("#angleOfViewTable").find("td").css("padding", ".5rem");
     $tableBody.find("tr").css("text-align", "center");
+    $(".angleOfViewLens").click((e) => {
+        let orientation = $("#imageOrientation").find(".active").text();
+        let angleOfViewVal;
+        if (orientation == "Horizontal") {
+            angleOfViewVal = $(e.currentTarget).parent().next().text();
+        } else {
+            angleOfViewVal = $(e.currentTarget).parent().next().next().text();
+        }
+        $("#inputView").val(angleOfViewVal);
+        $('#angleOfViewModal').modal('hide');
+    });
 
     $('#ddFocalLength').dropdown();
     $('#ddFocalLength').parent().find("a").click(function (e) {
