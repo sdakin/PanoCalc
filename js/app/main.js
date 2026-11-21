@@ -164,11 +164,11 @@ define(["bootstrap", "jquery-ui"], function () {
             $row.css("height", "" + (shotHeight - 1) + "px");
             if (row > 0)
                 $row.css("margin-top", "-" + (shotHeight * vOverlap / 100) + "px");
-            $row.css("z-index", vCount - row);
+            $row.css("z-index", row);
             for (var col = 0; col < hCount; col++) {
                 var $shot = $('<div class="' + (portrait ? "portraitShot" : "landscapeShot") + '"></div>');
                 $shot.css("left", "" + (col * shotWidth * (1 - hOverlap / 100)) + "px");
-                $shot.css("z-index", hCount - col);
+                $shot.css("z-index", col);
                 $row.append($shot);
             }
             $shotLayout.append($row);
@@ -191,7 +191,7 @@ define(["bootstrap", "jquery-ui"], function () {
                 '</div>';
             $shotData.append($('<li class="list-group-item">' + rowStr + '</li>'));
         }
-        $shotData.append($('<li class="list-group-item">final image dimensions: ' + hPixels + " x " + vPixels + '</li>'));
+        $shotData.append($('<li class="list-group-item">final image dimensions: ' + hPixels + " x " + vPixels + ' (' + calcMegapixels(hPixels, vPixels) + ')</li>'));
 
         var $hShots = $shotLayout.find(".layoutRow").first().find(portrait ? ".portraitShot" : ".landscapeShot"),
             shotsWidth = $hShots.last()[0].getBoundingClientRect().right - $hShots.first()[0].getBoundingClientRect().left,
@@ -217,8 +217,7 @@ define(["bootstrap", "jquery-ui"], function () {
         $sampleImage.css("left", sampleLeft + hOffset);
         $sampleImage.css("top", sampleTop + vOffset);
         $shotLayout.append($sampleImage);
-        $shotData.append($('<li class="list-group-item">aspect ratio dimensions: ' + arHpixels + " x " + arVpixels + '</li>'));
-
+        $shotData.append($('<li class="list-group-item">aspect ratio dimensions: ' + arHpixels + " x " + arVpixels + ' (' + calcMegapixels(arHpixels, arVpixels) + ')</li>'));
     }
 
     // returns a floating point number indicating the ratio of the width to the height.
@@ -232,5 +231,11 @@ define(["bootstrap", "jquery-ui"], function () {
             return Number(parts[1]) / Number(parts[0]);
         else
             return Number(parts[0]) / Number(parts[1]);
+    }
+
+    // given the width and height of an image (in pixels), returns a string indicating the megapixel count of the image, rounded to an integer and containing "MP".
+    function calcMegapixels(width, height) {
+        var megapixels = (width * height) / 1000000;
+        return Math.round(megapixels) + " MP";
     }
 });
